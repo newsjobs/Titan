@@ -12,6 +12,7 @@ from threading import Lock
 
 lock = Lock()
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
 
 class MarketWatcher:
     """Active object that subscribes to a ticker of a specific interval and keeps track of OHLCV data

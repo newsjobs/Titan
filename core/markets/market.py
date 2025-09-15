@@ -8,6 +8,7 @@ from ccxt import BaseError
 
 
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
 
 markets = []
 
@@ -22,8 +23,8 @@ class Market:
         self.strategy = strategy
         self.api_key = None
         self.secret_key = None
-        self.get_exchange_login()
         self.exchange = exchange({'apiKey': self.api_key, 'secret': self.secret_key, })
+        self.get_exchange_login()
         self.base_currency = base_currency
         self.quote_currency = quote_currency
         self.analysis_pair = '{}/{}'.format(self.base_currency, self.quote_currency)
@@ -57,7 +58,8 @@ class Market:
                 data = f.read().splitlines()
             self.exchange.api_key = data[0]
             self.exchange.secret_key = data[1]
-        except:
+        except Exception as e:
+            print(e)
             logger.error("Invalid login file")
 
     def limit_buy(self, quantity, price):

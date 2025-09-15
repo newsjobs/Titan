@@ -64,3 +64,13 @@ _volumes/*
 #SECRET KEY
 
 login-real.txt
+
+# Python virtual environment
+venv/
+*.pyc
+__pycache__/
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+

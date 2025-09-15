@@ -5,6 +5,7 @@ from core.markets import order
 import logging
 
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
 
 long_positions = 0
 

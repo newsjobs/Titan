@@ -8,6 +8,7 @@ import logging
 
 strategies = []
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
 
 class BaseStrategy:
     """An abstract class that implements the backbone functionality of a strategy
